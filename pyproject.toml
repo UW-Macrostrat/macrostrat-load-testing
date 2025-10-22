@@ -1,0 +1,11 @@
+[project]
+name = "macrostrat-load-testing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.3.0",
+    "locust>=2.41.6",
+    "requests>=2.32.5",
+]
