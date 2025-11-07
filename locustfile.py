@@ -142,7 +142,7 @@ class LogReplayUser(HttpUser):
             response = self.client.request(method, path, headers=headers, timeout=10, catch_response=False)
             elapsed = (time.time() - start) * 1000.0  # Locust expects ms for events
             if response.status_code >= 400:
-                events.request_failure.fire(
+                events.request.fire(
                     request_type=method,
                     name=path,
                     response_time=elapsed,
@@ -150,7 +150,7 @@ class LogReplayUser(HttpUser):
                     exception=Exception(f"HTTP {response.status_code}")
                 )
             else:
-                events.request_success.fire(
+                events.request.fire(
                     request_type=method,
                     name=path,
                     response_time=elapsed,
